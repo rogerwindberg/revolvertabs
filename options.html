@@ -1,45 +1,67 @@
 <html>
   <head>
     <title>Options - Revolver Tabs</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   </head>
-  <style type="text/css">
-    body {font-family: arial, sans-serif;margin:2em;background-color:#f1f1f1;}
-    div#topline {background-image:url('revolver_t_48.png');background-repeat: no-repeat;padding:0 5px 5px 55px;}
-    h1 {margin:0;padding:0;letter-spacing:-2px;}
-    span.byline {font-size:.7em;color:#999;}
-    span.byline a {color:#777;}
-    input {font-size:.8em;border:1px solid #ccc;padding:3px;}
-    input.enable {margin:0 1em 0 0;text-align:right}
-    input.url-text{width:60em;}
-    label {font-size:.8em;}
-    label.inline {margin: 0 0 0 5em}
-    span.example {font-size:.7em;color:#999;display:block;}
-    div#settings, div#adv-settings {margin:1em 2em;background-color: #ffffff;border: 1px solid #ccc;border-radius: 10px 10px;padding: 10px 30px 30px 30px;}
-    div#settings p, div#adv-settings p {border-bottom: 1px dotted #ccc;padding-bottom:3px;}
-    span#status, span#status3 {color:#ff6103;padding:0 1em;font-weight:bold;font-size:10px;}
-    div.saveheader {margin:.5em 2em .5em 0;text-align:right;}
-    p.thanks {font-size:.8em;margin:2em 0;}
-    img.icon {height:15px;width:15px;margin-right:5px}
-  </style>
   <body>
-    <div id="topline">
-      <h1>Revolver Tabs <span class="byline"> v1.0</span></h1>
-      <span class="byline">by <a href="https://linkedin.com/in/rogerwindberg">Roger Windberg</a> | Instagram: <a href="https://instagram.com/rogerwindberg">@rogerwindberg</a></span>
-      <div class="saveheader"></div>
+    <div class="topline">
+      <img id="logo" src="./icons/revolver_t_128.png" alt="Revolver Tabs icon">
+      <div class="toptext">
+        <h1>Revolver Tabs <span class="version"> v1.1</span></h1>
+        <span class="byline">
+          by&nbsp;
+          <a href="https://linkedin.com/in/rogerwindberg" target="_blank">Roger Windberg</a>&nbsp;&nbsp;&nbsp;&nbsp;|
+          <a class="svg" href="https://instagram.com/rogerwindberg" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a class="svg" href="https://github.com/rogerwindberg/revolvertabs" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="24px" height="24px"><path d="M 249.998 3.835 C 111.926 3.835 -0.02 115.781 -0.02 253.853 C -0.02 371.009 80.654 469.038 189.411 496.165 C 188.247 492.79 187.496 488.874 187.496 484.015 L 187.496 441.286 C 177.346 441.286 160.344 441.286 156.076 441.286 C 138.969 441.286 123.762 433.928 116.385 420.263 C 108.195 405.077 106.778 381.841 86.486 367.634 C 80.463 362.904 85.051 357.509 91.986 358.237 C 104.801 361.864 115.427 370.657 125.426 383.695 C 135.385 396.761 140.076 399.719 158.681 399.719 C 167.702 399.719 181.202 399.196 193.913 397.2 C 200.748 379.846 212.56 363.864 226.996 356.322 C 143.742 347.755 104.007 306.338 104.007 250.102 C 104.007 225.892 114.322 202.473 131.843 182.747 C 126.095 163.159 118.866 123.221 134.054 108.01 C 171.515 108.01 194.16 132.305 199.598 138.868 C 218.268 132.471 238.77 128.843 260.313 128.843 C 281.897 128.843 302.483 132.471 321.193 138.907 C 326.569 132.386 349.239 108.01 386.781 108.01 C 402.033 123.24 394.719 163.348 388.905 182.889 C 406.322 202.577 416.574 225.936 416.574 250.102 C 416.574 306.297 376.903 347.695 293.772 356.302 C 316.649 368.238 333.338 401.783 333.338 427.055 L 333.338 484.015 C 333.338 486.184 332.859 487.747 332.611 489.601 C 430.035 455.452 500.021 362.947 500.021 253.853 C 500.021 115.781 388.074 3.835 249.998 3.835 Z" style="stroke-width: 1;"/></svg>
+          </a>
+          <a class="svg" href="https://www.linkedin.com/in/rogerwindberg" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 382 382" width="24px" height="24px"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M347.445,0H34.555C15.471,0,0,15.471,0,34.555v312.889C0,366.529,15.471,382,34.555,382h312.889 C366.529,382,382,366.529,382,347.444V34.555C382,15.471,366.529,0,347.445,0z M118.207,329.844c0,5.554-4.502,10.056-10.056,10.056 H65.345c-5.554,0-10.056-4.502-10.056-10.056V150.403c0-5.554,4.502-10.056,10.056-10.056h42.806 c5.554,0,10.056,4.502,10.056,10.056V329.844z M86.748,123.432c-22.459,0-40.666-18.207-40.666-40.666S64.289,42.1,86.748,42.1 s40.666,18.207,40.666,40.666S109.208,123.432,86.748,123.432z M341.91,330.654c0,5.106-4.14,9.246-9.246,9.246H286.73 c-5.106,0-9.246-4.14-9.246-9.246v-84.168c0-12.556,3.683-55.021-32.813-55.021c-28.309,0-34.051,29.066-35.204,42.11v97.079 c0,5.106-4.139,9.246-9.246,9.246h-44.426c-5.106,0-9.246-4.14-9.246-9.246V149.593c0-5.106,4.14-9.246,9.246-9.246h44.426 c5.106,0,9.246,4.14,9.246,9.246v15.655c10.497-15.753,26.097-27.912,59.312-27.912c73.552,0,73.131,68.716,73.131,106.472 L341.91,330.654L341.91,330.654z"></path> </g></svg>
+          </a>
+          </span>
+      </div>
     </div>
+    <div>
+    </div>
+    <div class="saveheader"></div>
     <div id="settings">
-      <p><label for="seconds">Seconds:</label> <input type="text" name="seconds" id="seconds" style="width:30px;"><span class="example">The number of seconds to show a tab before switching ex. <strong>10</strong></span></p>
-      <p><label for="autostart">Auto Start:</label> <input type="checkbox" name="autostart" id="autostart"><span class="example">Automatically start Revolver Tabs on browser startup.</span></p>
-      <p><label for="reload">Reload:</label> <input type="checkbox" name="reload" id="reload"><span class="example">Check this box to reload the tab each time before it is shown.</span></p>
-      <p><label for="noRefreshList">Blacklist for URLs that should not be reloaded:</label> <textarea name="noRefreshList" id="noRefreshList" rows="10" cols="80"></textarea><span class="example">The list should have full URLs, each separated by a new line</span></p>
-      <p><label for="inactive">Rotate only when inactive:</label> <input type="checkbox" name="inactive" id="inactive"><span class="example"><strong>Rotation will pause</strong> if the browser has been interacted with within 15 seconds.</span></p>
+      <h3>General Settings <span class="example">Set the default settings to all tabs</span></h3>
+      <div class="custom-input-text">
+        <label for="seconds">Seconds:</label>
+        <input type="text" name="seconds" id="seconds" style="width:30px;">
+        <span class="example">The number of seconds to show a tab before switching ex. <strong>10</strong>
+        </span>
+      </div>
+      <div class="custom-checkbox">
+        <input type="checkbox" name="autostart" id="autostart">
+        <label for="autostart">Auto Start</label>
+        <span class="example">Automatically start Revolver Tabs on browser startup.</span>
+      </div>
+      <div class="custom-checkbox">
+        <input type="checkbox" name="reload" id="reload">
+        <label for="reload">Reload</label>
+        <span class="example">Check this box to reload the tab each time before it is shown.</span>
+      </div>
+      <p><label for="noRefreshList">Blacklist for URLs that should not be reloaded:</label><span class="example">The list should have full URLs, each separated by a new line</span><textarea name="noRefreshList" id="noRefreshList" rows="10" cols="80"></textarea></p>
+      <div class="custom-checkbox">
+        <input type="checkbox" name="inactive" id="inactive">
+        <label for="inactive">Rotate only when inactive</label>
+        <span class="example"><strong>Rotation will pause</strong> if the browser has been interacted with within 15 seconds.</span>
+      </div>
       <button id="save">Save</button><span id="status"></span>
     </div>
     <div id="adv-settings" class="adv-settings" style="margin-top:10px">
-      <p>Advanced Settings <span class="example">Select the checkbox to enable individual settings on a tab</span></p>
+      <h3>Advanced Settings <span class="example">Select the checkbox to enable individual settings on a tab</span></h3>
+      <div id="adv-settings-list"></div>
     </div>
-    <p class="thanks">Special thanks for <a href="https://code.google.com/p/revolver-chrome-extensions/">open source code contributions</a> from Fred Emmott, Aurimas Liutikas, Wayne Goyer and Ben Hedrington.</p>
+    <div class="thanks">
+      <p>Special thanks to all open source code contributors to the <a href="https://code.google.com/p/revolver-chrome-extensions/">original project.</a></p>
+    </div>
     <script src="options_script.js"></script>
   </body>
-  <script src="options_script.js"></script>
 </html>
