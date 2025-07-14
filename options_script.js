@@ -12,6 +12,7 @@ function saveBaseOptions(callback) {
     reload: document.getElementById("reload").checked,
     inactive: document.getElementById("inactive").checked,
     autostart: document.getElementById("autostart").checked,
+    ignoreGroups: document.getElementById("ignoreGroups").checked,
     noRefreshList: document.getElementById('noRefreshList').value.split('\n')
   };
 
@@ -30,6 +31,7 @@ function restoreOptions() {
     document.getElementById("reload").checked = appSettings.reload || false;
     document.getElementById("inactive").checked = appSettings.inactive || false;
     document.getElementById("autostart").checked = appSettings.autostart || false;
+    document.getElementById("ignoreGroups").checked = appSettings.ignoreGroups || false;
     document.getElementById("noRefreshList").value = (appSettings.noRefreshList || []).join('\n');
   });
 }
@@ -103,9 +105,18 @@ function buildCurrentTabsList() {
 }
 
 function getCurrentTabs(callback) {
-  chrome.windows.getCurrent({ populate: true }, function(window) {
-    const tabs = window.tabs.filter(tab => !tab.url.startsWith("chrome-extension"));
-    callback(tabs);
+  chrome.storage.local.get("revolverSettings", (result) => {
+    const ignoreGroups = result.revolverSettings?.ignoreGroups || false;
+
+    chrome.windows.getCurrent({ populate: true }, function(window) {
+      let tabs = window.tabs.filter(tab => !tab.url.startsWith("chrome-extension"));
+      
+      if (ignoreGroups) {
+        tabs = tabs.filter(tab => tab.groupId === -1);
+      }
+
+      callback(tabs);
+    });
   });
 }
 

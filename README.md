@@ -10,6 +10,7 @@ Rewritten of [original Revolver Tabs extension project](https://code.google.com/
 - Compatibility with **Manifest V3**
 - Robust options (base and advanced)
 - Dark/Light theme toggle with persistent preference
+- Ignore Tab Groups new feature
 
 ---
 
@@ -19,7 +20,7 @@ Rewritten of [original Revolver Tabs extension project](https://code.google.com/
 | ------------------------ | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | **Settings Storage**     | Used `localStorage` only           | Uses `chrome.storage.local` or `sync` for persistent, isolated config                                            |
 | **Options ↔ Background** | Accessed `backgroundPage` directly | Uses `chrome.runtime.sendMessage` for async sync                                                                 |
-| **Tab Rotation**         | Mixed logic inside `background.js` | Clean separation with a **Service Worker** (`background_script.js`)                                              |
+| **Tab Rotation**         | Mixed logic inside `background.js` | Clean separation with a **Service Worker** (`background_script.js`) and new feature `Ignore Tab Groups`.                                              |
 | **Advanced Settings**    | Rendered with raw `innerHTML`      | Uses DOM API (`createElement`, `appendChild`) with safe deduplication                                            |
 | **Theme Support**        | None                               | Uses `:root` CSS Variables with `@media (prefers-color-scheme: dark)` plus manual toggle saved in `localStorage` |
 | **UX Blocking**          | Inputs always editable             | Fields like “Seconds” and “Reload” disabled if “Custom” is unchecked                                             |

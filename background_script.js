@@ -34,13 +34,26 @@ function stop(windowId) {
 function moveTab(windowId) {
   chrome.tabs.query({ "windowId": windowId, "active": true }, (tabs) => {
     const currentTab = tabs[0];
-    chrome.tabs.query({ "windowId": windowId }, (allTabs) => {
-      const nextTabIndex = currentTab.index + 1 < allTabs.length ? currentTab.index + 1 : 0;
-      const nextTab = allTabs[nextTabIndex];
-      activateTab(nextTab, windowId);
-    });
+    const allTabs = tabsManifest[windowId] || [];
+
+    if (allTabs.length === 0) {
+      console.log("No tabs to rotate for window:", windowId);
+      return;
+    }
+
+    let currentIndex = allTabs.findIndex(tab => tab.id === currentTab.id);
+
+    if (currentIndex === -1) {
+      currentIndex = 0;
+    }
+
+    const nextTabIndex = (currentIndex + 1) < allTabs.length ? (currentIndex + 1) : 0;
+    const nextTab = allTabs[nextTabIndex];
+
+    activateTab(nextTab, windowId);
   });
 }
+
 
 function activateTab(nextTab, windowId) {
   grabTabSettings(windowId, nextTab, (tabSetting) => {
@@ -146,12 +159,21 @@ function grabTabSettings(windowId, tab, callback) {
 
 function createTabsManifest(windowId, callback) {
   chrome.tabs.query({ "windowId": windowId }, (tabs) => {
-    assignSettingsToTabs(tabs, () => {
-      tabsManifest[windowId] = tabs;
-      callback();
+    chrome.storage.local.get("revolverSettings", (result) => {
+      const ignoreGroups = result.revolverSettings?.ignoreGroups || false;
+
+      if (ignoreGroups) {
+        tabs = tabs.filter(tab => tab.groupId === -1);
+      }
+
+      assignSettingsToTabs(tabs, () => {
+        tabsManifest[windowId] = tabs;
+        callback();
+      });
     });
   });
 }
+
 
 function assignSettingsToTabs(tabs, callback) {
   assignBaseSettings(tabs, () => {
