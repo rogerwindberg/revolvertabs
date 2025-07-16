@@ -229,4 +229,5 @@ textarea {
   display: flex;
   align-self: self-end;
   height: 10%;
+  width: 100%;
 }
